@@ -148,10 +148,12 @@ class ClicksInputSystem<TPos:IPos<TPos>> extends FSM<SingleTargetInputStates, Cl
 
     public function addHandler(target:ClickTarget<TPos>):Void {
         targets.unshift(target);
+        processPosition();
     }
 
     public function removeHandler(target:ClickTarget<TPos>):Void {
         targets.remove(target);
+        processPosition();
     }
 
 }
