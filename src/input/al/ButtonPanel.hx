@@ -1,7 +1,7 @@
 package input.al;
 import input.core.SwitchableInputTarget;
 import al.al2d.Widget2D;
-import ec.CtxBinder;
+import ec.CtxWatcher;
 import input.ec.binders.ClickInputBinder;
 import input.ec.binders.SwitchableInputBinder;
 import input.core.ClicksInputSystem;
@@ -15,7 +15,7 @@ class ButtonPanel {
         outside.x = -9999999;
         outside.y = -9999999;
         w.entity.addComponentByType(SwitchableInputTarget, new SwitchableInputAdapter(input, new WidgetHitTester(w),new Point(), outside));
-        new CtxBinder(SwitchableInputBinder, w.entity);
+        new CtxWatcher(SwitchableInputBinder, w.entity);
         return w;
     }
 }

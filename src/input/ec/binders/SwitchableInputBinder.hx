@@ -3,9 +3,9 @@ package input.ec.binders;
 import input.core.SwitchableInputTargets;
 import input.core.SwitchableInputTarget;
 import input.core.IPos;
-import ec.CtxBinder.CtxBindable;
+import ec.CtxWatcher.CtxBinder;
 import ec.Entity;
-class SwitchableInputBinder<T:IPos<T>> implements CtxBindable {
+class SwitchableInputBinder<T:IPos<T>> implements CtxBinder {
     var system:SwitchableInputTargets<T>;
 
     public function new(s) {

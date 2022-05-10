@@ -4,8 +4,8 @@ import input.core.IPos;
 import input.core.ClicksInputSystem.ClickTarget;
 import ec.Entity;
 import input.core.ClicksInputSystem.ClicksSystem;
-import ec.CtxBinder.CtxBindable;
-class ClickInputBinder<T:IPos<T>> implements CtxBindable {
+import ec.CtxWatcher.CtxBinder;
+class ClickInputBinder<T:IPos<T>> implements CtxBinder {
     var system:ClicksSystem<T>;
 
     public function new(s) {
