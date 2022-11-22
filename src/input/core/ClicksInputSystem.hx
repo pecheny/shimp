@@ -12,7 +12,7 @@ interface ClicksSystem<TPos> {
     function removeHandler(target:ClickTarget<TPos>):Void;
 }
 
-@:enum abstract SingleTargetInputStates(String) to String{
+@:enum abstract SingleTargetInputStates(String) to String {
     var open = "open";
     var pressed = "pressed";
     var pressed_outside = "pressed_outside";
@@ -32,10 +32,10 @@ class STIOpenState<T:IPos<T>> extends STIState<T> {
     override public function hover(target:ClickTarget<T>) {
         super.hover(target);
         if (current != null)
-            current.viewHandler(ClickTargetViewState.Idle);
+            current.changeViewState(ClickTargetViewState.Idle);
         current = target;
         if (current != null)
-            current.viewHandler(ClickTargetViewState.Hovered);
+            current.changeViewState(ClickTargetViewState.Hovered);
     }
 
     override public function onEnter():Void {
@@ -47,7 +47,7 @@ class STIOpenState<T:IPos<T>> extends STIState<T> {
     override public function onExit():Void {
         super.onExit();
         if (current != null)
-            current.viewHandler(ClickTargetViewState.Idle);
+            current.changeViewState(ClickTargetViewState.Idle);
         current = null;
     }
 
@@ -59,9 +59,9 @@ class STIPressedState<T:IPos<T>> extends STIState<T> {
     override public function hover(target:ClickTarget<T>) {
         super.hover(target);
         if (this.target == target) {
-            this.target.viewHandler(ClickTargetViewState.Pressed);
+            this.target.changeViewState(ClickTargetViewState.Pressed);
         } else {
-            this.target.viewHandler(ClickTargetViewState.PressedOutside);
+            this.target.changeViewState(ClickTargetViewState.PressedOutside);
         }
     }
 
@@ -73,7 +73,7 @@ class STIPressedState<T:IPos<T>> extends STIState<T> {
 
     override public function onExit():Void {
         super.onExit();
-        this.target.viewHandler(ClickTargetViewState.Idle);
+        this.target.changeViewState(ClickTargetViewState.Idle);
         target = null;
     }
 }
@@ -207,9 +207,8 @@ class SwitchableInputAdapter<TPos:IPos<TPos>> implements SwitchableInputTarget<T
 interface ClickTarget<TPos> extends HitTester<TPos> {
     public function handler():Void;
 
-    public function viewHandler(st:ClickTargetViewState):Void ;
+    public function changeViewState(st:ClickTargetViewState):Void ;
 }
-
 
 enum ClickTargetViewState {
     Idle;
