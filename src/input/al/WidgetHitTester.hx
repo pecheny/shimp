@@ -1,9 +1,9 @@
 package input.al;
 import Axis2D;
 import input.core.HitTester;
-import al.al2d.Widget2D;
+import al.al2d.Placeholder2D;
 class WidgetHitTester implements HitTester<Point> {
-    var w:Widget2D;
+    var w:Placeholder2D;
 
     public function new(w) {
         this.w = w;

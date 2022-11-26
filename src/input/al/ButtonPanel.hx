@@ -1,6 +1,6 @@
 package input.al;
 import input.core.SwitchableInputTarget;
-import al.al2d.Widget2D;
+import al.al2d.Placeholder2D;
 import ec.CtxWatcher;
 import input.ec.binders.ClickInputBinder;
 import input.ec.binders.SwitchableInputBinder;
@@ -8,7 +8,7 @@ import input.core.ClicksInputSystem;
 import input.al.WidgetHitTester;
 
 class ButtonPanel {
-    public static function make(w:Widget2D) {
+    public static function make(w:Placeholder2D) {
         var input = new ClicksInputSystem(new Point());
         w.entity.addComponent(new ClickInputBinder(input));
         var outside = new Point();
