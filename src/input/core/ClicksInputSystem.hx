@@ -210,10 +210,10 @@ interface ClickTarget<TPos> extends HitTester<TPos> {
     public function changeViewState(st:ClickTargetViewState):Void ;
 }
 
-enum ClickTargetViewState {
-    Idle;
-    Hovered;
-    Pressed;
-    PressedOutside;
+@:enum abstract ClickTargetViewState(Axis<ClickTargetViewState>) to Axis<ClickTargetViewState> to Int {
+    var Idle;
+    var Hovered;
+    var Pressed;
+    var PressedOutside;
 }
 
