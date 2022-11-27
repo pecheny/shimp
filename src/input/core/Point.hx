@@ -1,4 +1,4 @@
-package input;
+package input.core;
 import input.core.IPos;
 class Point implements IPos<Point> {
     public var x:Float = 0;

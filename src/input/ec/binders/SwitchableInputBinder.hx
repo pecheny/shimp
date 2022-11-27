@@ -1,10 +1,10 @@
 package input.ec.binders;
 
-import input.core.SwitchableInputTargets;
-import input.core.SwitchableInputTarget;
-import input.core.IPos;
 import ec.CtxWatcher.CtxBinder;
 import ec.Entity;
+import input.core.IPos;
+import input.core.SwitchableInputTarget;
+import input.core.SwitchableInputTargets;
 class SwitchableInputBinder<T:IPos<T>> implements CtxBinder {
     var system:SwitchableInputTargets<T>;
 

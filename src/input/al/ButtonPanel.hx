@@ -1,11 +1,12 @@
 package input.al;
-import input.core.SwitchableInputTarget;
 import al.al2d.Placeholder2D;
 import ec.CtxWatcher;
+import input.al.WidgetHitTester;
+import input.core.ClicksInputSystem;
+import input.core.Point;
+import input.core.SwitchableInputTarget;
 import input.ec.binders.ClickInputBinder;
 import input.ec.binders.SwitchableInputBinder;
-import input.core.ClicksInputSystem;
-import input.al.WidgetHitTester;
 
 class ButtonPanel {
     public static function make(w:Placeholder2D) {
