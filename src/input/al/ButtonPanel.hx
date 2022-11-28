@@ -5,8 +5,8 @@ import input.al.WidgetHitTester;
 import input.core.ClicksInputSystem;
 import input.core.InputSystem;
 import input.core.Point;
-import input.ec.binders.ClickInputBinder;
-import input.ec.binders.SwitchableInputBinder;
+import ecbind.ClickInputBinder;
+import ecbind.SwitchableInputBinder;
 
 class ButtonPanel {
     public static function make(w:Placeholder2D) {
