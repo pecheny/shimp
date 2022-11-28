@@ -1,4 +1,4 @@
-package input.core;
+package shimp;
 
 interface InputSystem<TPos> {
     function addChild(c:InputSystemTarget<TPos>):Void;

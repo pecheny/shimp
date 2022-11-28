@@ -1,8 +1,8 @@
-package input.core;
+package shimp;
 import fsm.FSM;
 import fsm.State;
-import input.core.InputSystem;
-import input.core.IPos;
+import shimp.InputSystem;
+import shimp.IPos;
 
 interface ClicksSystem<TPos> {
     function addHandler(target:ClickTarget<TPos>):Void;

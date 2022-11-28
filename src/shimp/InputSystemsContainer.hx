@@ -1,9 +1,9 @@
-package input.core;
+package shimp;
 
 import fsm.FSM;
 import fsm.State;
-import input.core.IPos;
-import input.core.InputSystem;
+import shimp.IPos;
+import shimp.InputSystem;
 
 @:enum abstract InputSystemsContainerStates(String) to String {
     var open = "open";

@@ -1,5 +1,5 @@
-package input.core;
-import input.core.IPos;
+package shimp;
+import shimp.IPos;
 class Point implements IPos<Point> {
     public var x:Float = 0;
     public var y:Float = 0;
