@@ -1,11 +1,9 @@
 package input.core;
 
-import input.core.SwitchableInputTarget;
 import fsm.FSM;
 import fsm.State;
 import input.core.IPos;
-import input.core.SwitchableInputTargets;
-import input.core.HitTester;
+import input.core.InputSystem;
 
 @:enum abstract InputSystemsContainerStates(String) to String {
     var open = "open";
@@ -17,7 +15,7 @@ import input.core.HitTester;
 class ISCState<TPos:IPos<TPos>> extends State<InputSystemsContainerStates, InputSystemsContainer<TPos>> {
     public function new() {}
 
-    public function hover(target:SwitchableInputTarget<TPos>) {}
+    public function hover(target:InputSystemTarget<TPos>) {}
 }
 
 class ISCOpenState<T:IPos<T>> extends ISCState<T> {
@@ -26,7 +24,7 @@ class ISCOpenState<T:IPos<T>> extends ISCState<T> {
         fsm.changeTarget(fsm.hovered);
     }
 
-    override public function hover(target:SwitchableInputTarget<T>) {
+    override public function hover(target:InputSystemTarget<T>) {
         fsm.changeTarget(target);
     }
 }
@@ -65,14 +63,14 @@ class ISCDisabledState<T:IPos<T>> extends ISCState<T> {
     }
 }
 
-class InputSystemsContainer<TPos:IPos<TPos>> extends FSM<InputSystemsContainerStates, InputSystemsContainer<TPos>> implements SwitchableInputTarget<TPos>
-implements SwitchableInputTargets<TPos> {
-    var targets:Array<SwitchableInputTarget<TPos>> = [];
+class InputSystemsContainer<TPos:IPos<TPos>> extends FSM<InputSystemsContainerStates, InputSystemsContainer<TPos>> implements InputSystemTarget<TPos>
+implements InputSystem<TPos> {
+    var targets:Array<InputSystemTarget<TPos>> = [];
 
     public var movingTargets = false;
-    public var hovered:SwitchableInputTarget<TPos>;
-    public var pressed:SwitchableInputTarget<TPos>;
-    public var active(default, null):SwitchableInputTarget<TPos>;
+    public var hovered:InputSystemTarget<TPos>;
+    public var pressed:InputSystemTarget<TPos>;
+    public var active(default, null):InputSystemTarget<TPos>;
 
     var lastPos:TPos;
     var enabled = true;
@@ -92,7 +90,7 @@ implements SwitchableInputTargets<TPos> {
         return cast getCurrentState();
     }
 
-    public function changeTarget(t:SwitchableInputTarget<TPos>) {
+    public function changeTarget(t:InputSystemTarget<TPos>) {
         if (active == t)
             return;
         if (active != null)
@@ -147,12 +145,12 @@ implements SwitchableInputTargets<TPos> {
             active.release();
     }
 
-    public function addChild(target:SwitchableInputTarget<TPos>):Void {
+    public function addChild(target:InputSystemTarget<TPos>):Void {
         targets.unshift(target);
         processPosition();
     }
 
-    public function removeChild(target:SwitchableInputTarget<TPos>):Void {
+    public function removeChild(target:InputSystemTarget<TPos>):Void {
         targets.remove(target);
         processPosition();
     }

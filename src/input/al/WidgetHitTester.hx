@@ -1,7 +1,7 @@
 package input.al;
 import al.al2d.Placeholder2D;
 import Axis2D;
-import input.core.HitTester;
+import input.core.InputSystem.HitTester;
 import input.core.Point;
 class WidgetHitTester implements HitTester<Point> {
     var w:Placeholder2D;

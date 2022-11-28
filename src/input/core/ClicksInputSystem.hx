@@ -1,10 +1,8 @@
 package input.core;
-import input.core.IPos;
 import fsm.FSM;
 import fsm.State;
-import input.core.SwitchableInputTarget;
-import input.core.HitTester;
-import input.core.InputTarget;
+import input.core.InputSystem;
+import input.core.IPos;
 
 interface ClicksSystem<TPos> {
     function addHandler(target:ClickTarget<TPos>):Void;
@@ -157,7 +155,7 @@ class ClicksInputSystem<TPos:IPos<TPos>> extends FSM<SingleTargetInputStates, Cl
     }
 
 }
-class SwitchableInputAdapter<TPos:IPos<TPos>> implements SwitchableInputTarget<TPos> {
+class SwitchableInputAdapter<TPos:IPos<TPos>> implements InputSystemTarget<TPos> {
     var target:InputTarget<TPos>;
     var hittesetr:HitTester<TPos>;
     var enabled:Bool;
