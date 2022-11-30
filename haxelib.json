@@ -1,0 +1,21 @@
+{
+  "name": "shimp",
+  "url": "https://github.com/pecheny/shimp",
+  "license": "MIT",
+  "tags": [
+    "ui",
+    "input"
+  ],
+  "description": "Abstraction layer over pointing api to implement interactive ui components like button",
+  "version": "0.1.0",
+  "releasenote": "Initial release. ",
+  "classPath": "src",
+  "contributors": [
+    "pecheny"
+  ],
+  "dependencies": {
+    "fsm": "git:https://github.com/pecheny/fsm",
+    "taxis": "git:https://github.com/pecheny/taxis"
+  }
+}
+ 
