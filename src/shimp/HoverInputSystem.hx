@@ -63,6 +63,7 @@ class HoverInputSystem<TPos:IPos<TPos>> implements InputSystemTarget<TPos> imple
                 activateChild(ch);
                 return;
             }
+        activateChild(null);
     }
 
     public function addChild(c:InputSystemTarget<TPos>) {
