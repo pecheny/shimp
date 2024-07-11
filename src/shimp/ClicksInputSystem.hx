@@ -215,3 +215,8 @@ interface ClickTarget<TPos> extends HitTester<TPos> {
     var PressedOutside;
 }
 
+// интерфейс должен быть здесь или рядом, но пока лежит в buttonBase
+// нужно перенести зависимости. м.б. отсавить в батоне тайпдев сюда
+interface ClickViewProcessor {
+    function addHandler(h:ClickTargetViewState->Void):Void;
+}
