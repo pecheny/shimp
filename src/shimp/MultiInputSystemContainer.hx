@@ -6,7 +6,7 @@ import shimp.InputSystem;
 typedef ChildSys<T:IPos<T>> = MultiHoverChildSystem<T>;
 // typedef ChildSys<T:IPos<T>> = MultiInpChildSystem<T>;
 
-class MultiInputSystemContainer<TPos:IPos<TPos>> implements InputSystem<TPos> implements SharedTargets<TPos> {
+class MultiInputSystemContainer<TPos:IPos<TPos>> implements InputSystem<TPos> implements SharedTargets<TPos> implements MultiInputTarget<TPos> {
     public var targets:Array<InputSystemTarget<TPos>> = [];
 
     var systems:Array<ChildSys<TPos>> = [];
