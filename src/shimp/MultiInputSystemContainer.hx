@@ -4,6 +4,7 @@ import shimp.IPos;
 import shimp.InputSystem;
 
 typedef ChildSys<T:IPos<T>> = MultiHoverChildSystem<T>;
+
 // typedef ChildSys<T:IPos<T>> = MultiInpChildSystem<T>;
 
 class MultiInputSystemContainer<TPos:IPos<TPos>> implements InputSystem<TPos> implements SharedTargets<TPos> implements MultiInputTarget<TPos> {
@@ -71,6 +72,12 @@ class MultiInputSystemContainer<TPos:IPos<TPos>> implements InputSystem<TPos> im
     public function isFree(ch:InputSystemTarget<TPos>):Bool {
         var val = !(taken.exists(ch) && taken.get(ch));
         return val;
+    }
+
+    public function setActive(v:Bool):Void {
+        for (s in systems)
+            s.setActive(v);
+        taken.clear();
     }
 }
 

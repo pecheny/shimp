@@ -8,6 +8,8 @@ interface MultiInputTarget<TPos> {
     public function press(id:Int):Void;
 
     public function release(id:Int):Void;
+
+    public function setActive(v:Bool):Void;
 }
 
 class InputToMultiTarget<TPos> implements InputTarget<TPos> {
@@ -30,5 +32,4 @@ class InputToMultiTarget<TPos> implements InputTarget<TPos> {
     public function release() {
         target.release(id);
     }
-
 }
