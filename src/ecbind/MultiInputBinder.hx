@@ -3,7 +3,7 @@ package ecbind;
 import ec.CtxWatcher.CtxBinder;
 import ec.Entity;
 import shimp.MultiInputTarget;
-import widgets.utils.WidgetHitTester.Point;
+import shimp.Point;
 
 /**
     Combines mouse and touch input events for MultiInput targets.
